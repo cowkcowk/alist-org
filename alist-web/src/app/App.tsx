@@ -9,7 +9,9 @@ import {
   Switch,
 } from "solid-js"
 import { Portal } from "solid-js/web"
+import { base_path } from "~/utils"
 
+const Home = lazy(() => import("~/pages/home/Layout"))
 const About = lazy(() => import("~/pages/manage/About"))
 
 const App: Component = () => {
@@ -29,6 +31,18 @@ const App: Component = () => {
           <ProgressIndicator />
         </Progress>
       </Portal>
+      <Switch
+        fallback={
+          <Routes base={base_path}>
+            <Route
+              path="*"
+              element={
+                <Home />
+              }/>
+          </Routes>
+        }>
+
+      </Switch>
     </>
   )
 }
