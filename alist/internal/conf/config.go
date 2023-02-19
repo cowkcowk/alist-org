@@ -14,6 +14,7 @@ type Database struct {
 
 type Config struct {
 	SiteURL        string   `json:"site_url" env:"SITE_URL"`
+	JwtSecret      string   `json:"jwt_secret" env:"JWT_SECRET"`
 	TokenExpiresIn int      `json:"token_expires_in" env:"TOKEN_EXPIRES_IN"`
 	Database       Database `json:"database"`
 }
